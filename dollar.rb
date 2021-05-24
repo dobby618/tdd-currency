@@ -6,6 +6,7 @@ class Dollar
   end
 
   def times(multiplier)
-    @amount *= multiplier
+    # value オブジェクトみたいにするってことか？
+    return Dollar.new(amount * multiplier)
   end
 end
