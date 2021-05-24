@@ -1,6 +1,9 @@
 class Money
-  def initialize(amount)
+  attr_reader :currency
+
+  def initialize(amount, currency)
     @amount = amount
+    @currency = currency
   end
 
   def equal?(other)
@@ -11,10 +14,10 @@ class Money
   alias_method :==, :equal?
 
   def self.dollar(amount)
-    Dollar.new(amount)
+    Dollar.new(amount, 'USD')
   end
 
   def self.franc(amount)
-    Franc.new(amount)
+    Franc.new(amount, 'CHF')
   end
 end

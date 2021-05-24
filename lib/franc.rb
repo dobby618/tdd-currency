@@ -2,6 +2,6 @@ require_relative 'money'
 
 class Franc < Money
   def times(multiplier)
-    return Franc.new(@amount * multiplier)
+    Money.franc(@amount * multiplier)
   end
 end
