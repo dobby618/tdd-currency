@@ -19,6 +19,8 @@ describe 'MoneyText' do
 
     expect(Franc.new(5)).to eq Franc.new(5)
     expect(Franc.new(5)).not_to eq Franc.new(6)
+
+    expect(Dollar.new(5)).not_to eq Franc.new(5)
   end
 
   it 'testFrancMultiplication' do
