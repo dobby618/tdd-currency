@@ -1,5 +1,4 @@
-# Value オブジェクト
-class Dollar
+class Money
   def initialize(amount)
     @amount = amount
   end
@@ -10,9 +9,4 @@ class Dollar
     @amount == other.instance_eval('@amount')
   end
   alias_method :==, :equal?
-
-  def times(multiplier)
-    # value オブジェクトみたいにするってことか？
-    return Dollar.new(@amount * multiplier)
-  end
 end

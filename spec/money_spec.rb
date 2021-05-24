@@ -1,5 +1,4 @@
-require_relative '../dollar'
-require_relative '../franc'
+Dir["#{File.dirname(__FILE__)}/../lib/*.rb"].each {|file| require_relative file }
 
 describe 'MoneyText' do
   it 'testMultiplication' do
@@ -16,8 +15,10 @@ describe 'MoneyText' do
     expect(Dollar.new(5).equal?(Dollar.new(5))).to be_truthy
     expect(Dollar.new(5) == Dollar.new(5)).to be_truthy
     expect(Dollar.new(5)).to eq Dollar.new(5)
-
     expect(Dollar.new(5)).not_to eq Dollar.new(6)
+
+    expect(Franc.new(5)).to eq Franc.new(5)
+    expect(Franc.new(5)).not_to eq Franc.new(6)
   end
 
   it 'testFrancMultiplication' do

@@ -12,3 +12,4 @@
 [] Doller と Franc の重複
 [] equal? の一般化
 [] times の一般化
+[] Franc と Dollar を比較する（今だとイコールになりそうw）
