@@ -2,30 +2,26 @@ Dir["#{File.dirname(__FILE__)}/../lib/*.rb"].each {|file| require_relative file 
 
 describe 'MoneyText' do
   it 'testMultiplication' do
-    five = Dollar.new(5)
-    # times メソッドが doller オブジェクトを返してることが分かりづらい
-    # product = five.times(2)
-    # expect(product.amount).to eq 10
-    expect(five.times(2)).to eq Dollar.new(10)
-
-    expect(five.times(3)).to eq Dollar.new(15)
+    five = Money.dollar(5)
+    expect(five.times(2)).to eq Money.dollar(10)
+    expect(five.times(3)).to eq Money.dollar(15)
   end
 
   it 'testEquality' do
-    expect(Dollar.new(5).equal?(Dollar.new(5))).to be_truthy
-    expect(Dollar.new(5) == Dollar.new(5)).to be_truthy
-    expect(Dollar.new(5)).to eq Dollar.new(5)
-    expect(Dollar.new(5)).not_to eq Dollar.new(6)
+    expect(Money.dollar(5).equal?(Money.dollar(5))).to be_truthy
+    expect(Money.dollar(5) == Money.dollar(5)).to be_truthy
+    expect(Money.dollar(5)).to eq Money.dollar(5)
+    expect(Money.dollar(5)).not_to eq Money.dollar(6)
 
-    expect(Franc.new(5)).to eq Franc.new(5)
-    expect(Franc.new(5)).not_to eq Franc.new(6)
+    expect(Money.franc(5)).to eq Money.franc(5)
+    expect(Money.franc(5)).not_to eq Money.franc(6)
 
-    expect(Dollar.new(5)).not_to eq Franc.new(5)
+    expect(Money.dollar(5)).not_to eq Money.franc(5)
   end
 
   it 'testFrancMultiplication' do
-    five = Franc.new(5)
-    expect(five.times(2)).to eq Franc.new(10)
-    expect(five.times(3)).to eq Franc.new(15)
+    five = Money.franc(5)
+    expect(five.times(2)).to eq Money.franc(10)
+    expect(five.times(3)).to eq Money.franc(15)
   end
 end
