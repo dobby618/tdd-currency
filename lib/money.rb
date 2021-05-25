@@ -1,17 +1,8 @@
-class Money
-  include Expression
-
-  attr_reader :amount, :currency
-
-  def initialize(amount, currency)
-    @amount = amount
-    @currency = currency
+class Money < Struct.new(:amount, :currency)
+  def initialize(*args)
+    super
+    freeze
   end
-
-  def equal?(other)
-    amount == other.amount && currency == other.currency
-  end
-  alias_method :==, :equal?
 
   def self.dollar(amount)
     Money.new(amount, 'USD')
