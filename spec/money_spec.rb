@@ -29,4 +29,25 @@ describe 'MoneyText' do
     # 適用することで得られる換算結果
     expect(Money.dollar(10)).to eq reduced
   end
+
+  it 'testPlusReturnsSum' do
+    five = Money.dollar(5)
+    result = five.plus(five)
+    sum = result # 型変換のため
+    expect(sum.augend).to eq five # 被加算数
+    expect(sum.addend).to eq five # 加数
+  end
+
+  it 'testReduceSum' do
+    sum = Sum.new(Money.dollar(3), Money.dollar(4))
+    bank = Bank.new
+    result = bank.reduce(sum, 'USD')
+    expect(result).to eq Money.dollar(7)
+  end
+
+  it 'testReduceMoney' do
+    bank = Bank.new
+    result = bank.reduce(Money.dollar(1), 'USD')
+    expect(result).to eq Money.dollar(1)
+  end
 end

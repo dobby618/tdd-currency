@@ -1,4 +1,6 @@
 class Money
+  include Expression
+
   attr_reader :amount, :currency
 
   def initialize(amount, currency)
@@ -26,6 +28,10 @@ class Money
   def plus(addend)
     # Expression のインターフェイスで Expression 型を返したい
     # のだけど、Ruby には IF がないからなぁ。
-    Money.new(amount + addend.amount, currency)
+    Sum.new(self, addend)
+  end
+
+  def reduce(to)
+    return self
   end
 end
