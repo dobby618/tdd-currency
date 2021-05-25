@@ -9,7 +9,8 @@ class Money
   def equal?(other)
     # amount を外部から参照するのはここしかないので
     # amount を private にしておきたい
-    @amount == other.instance_eval('@amount') && self.class == other.class
+    @amount == other.instance_eval('@amount') &&
+      currency == other.currency
   end
   alias_method :==, :equal?
 

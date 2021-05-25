@@ -19,6 +19,10 @@ describe 'MoneyText' do
     expect(Money.dollar(5)).not_to eq Money.franc(5)
   end
 
+  it 'testDifferentClassEquality' do
+    expect(Franc.new(10, 'CHF')).to eq Money.new(10, 'CHF')
+  end
+
   it 'testFrancMultiplication' do
     five = Money.franc(5)
     expect(five.times(2)).to eq Money.franc(10)

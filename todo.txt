@@ -11,7 +11,7 @@
 [x] 5CHF * 2 = 10CHF
 [] Doller と Franc の重複
 [x] equal? の一般化
-[] times の一般化
+[x] times の一般化
 [x] Franc と Dollar を比較する（今だとイコールになりそうw）
 ※ 今回はとりあえず、class メソッドを使って比較した。けど本当は通貨によって比較したいよね。
 [x] 通貨の概念
