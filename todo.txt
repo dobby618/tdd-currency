@@ -9,10 +9,10 @@
 [] null との等価性比較
 [] 他のオブジェクトとの等価性比較
 [x] 5CHF * 2 = 10CHF
-[] Doller と Franc の重複
+[x] Doller と Franc の重複
 [x] equal? の一般化
 [x] times の一般化
 [x] Franc と Dollar を比較する（今だとイコールになりそうw）
 ※ 今回はとりあえず、class メソッドを使って比較した。けど本当は通貨によって比較したいよね。
 [x] 通貨の概念
-[] testFrancMultiplication を削除する？
+[x] testFrancMultiplication を削除する？
