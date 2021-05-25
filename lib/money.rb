@@ -1,5 +1,5 @@
 class Money
-  attr_reader :currency
+  attr_reader :amount, :currency
 
   def initialize(amount, currency)
     @amount = amount
@@ -7,10 +7,7 @@ class Money
   end
 
   def equal?(other)
-    # amount を外部から参照するのはここしかないので
-    # amount を private にしておきたい
-    @amount == other.instance_eval('@amount') &&
-      currency == other.currency
+    amount == other.amount && currency == other.currency
   end
   alias_method :==, :equal?
 
@@ -23,6 +20,12 @@ class Money
   end
 
   def times(multiplier)
-    Money.new(@amount * multiplier, currency)
+    Money.new(amount * multiplier, currency)
+  end
+
+  def plus(addend)
+    # Expression のインターフェイスで Expression 型を返したい
+    # のだけど、Ruby には IF がないからなぁ。
+    Money.new(amount + addend.amount, currency)
   end
 end

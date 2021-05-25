@@ -18,4 +18,15 @@ describe 'MoneyText' do
     expect(Money.dollar(1).currency).to eq 'USD'
     expect(Money.franc(1).currency).to eq 'CHF'
   end
+
+  it 'testSimpleAddition' do
+    five = Money.dollar(5)
+    sum = five.plus(five) # sum は Expression オブジェクトになる。
+    bank = Bank.new
+    # reduce ってここで思い付かないな。。
+    reduced = bank.reduce(sum, 'USD')
+    # reduced は Expression に為替レートを
+    # 適用することで得られる換算結果
+    expect(Money.dollar(10)).to eq reduced
+  end
 end
