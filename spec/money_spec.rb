@@ -50,4 +50,15 @@ describe 'MoneyText' do
     result = bank.reduce(Money.dollar(1), 'USD')
     expect(result).to eq Money.dollar(1)
   end
+
+  it 'testReduceMoneyDifferentCurrency' do
+    bank = Bank.new
+    bank.add_rate('CHF', 'USD', 2)
+    result = bank.reduce(Money.franc(2), 'USD')
+    expect(result).to eq Money.dollar(1)
+  end
+
+  it 'testIdentityRate' do
+    expect(Bank.new.rate('USD', 'USD')).to eq 1
+  end
 end
